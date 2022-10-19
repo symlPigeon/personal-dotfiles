@@ -34,6 +34,8 @@ require('plugin-config.copilot')
 require('plugin-config.incline')
 -- null-ls
 require('lsp.null-ls')
+-- mason-null-ls, !!! must follow the order: mason null-ls mason-null-ls
+require('lsp.mason-null-ls')
 -- fidget
 require('plugin-config.fidget')
 -- gitsigns
@@ -42,3 +44,8 @@ require('plugin-config.gitsigns')
 require('plugin-config.surround')
 -- comment
 require('plugin-config.comment')
+
+-- dap
+require('dap.conf')
+-- mason dap bridge
+require('dap.mason-dap')

@@ -276,4 +276,31 @@ pluginKeys.gitsigns_on_attach = function(bufnr)
     map({ 'o', 'x' }, '<leader>ig', ':<C-U>Gitsigns select_hunk<CR>')
 end
 
+pluginKeys.mapDAP = function()
+    -- start
+    map("n", "<F5>", ":lua require('dap').continue()", opt)
+    -- stop
+    map(
+        "n",
+        "<leader>de",
+        ":lua require'dap'.close()<CR>"
+        .. ":lua require'dap'.terminate()<CR>"
+        .. ":lua require'dap.repl'.close()<CR>"
+        .. ":lua require'dapui'.close()<CR>"
+        .. "<C-w>o<CR>",
+        opt
+    )
+    -- set breakpoint
+    map("n", "<leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", opt)
+    map("n", "<leader>dT", ":lua require('dap').clear_breakpoints()<CR>", opt)
+    map("n", "<leader>db", ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opt)
+    map("n", "<leader>dB", ":lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opt)
+    --  stepOver, stepOut, stepInto
+    map("n", "<F10>", ":lua require'dap'.step_over()<CR>", opt)
+    map("n", "<F12>", ":lua require'dap'.step_out()<CR>", opt)
+    map("n", "<F11>", ":lua require'dap'.step_into()<CR>", opt)
+    -- eval
+    map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
+end
+
 return pluginKeys

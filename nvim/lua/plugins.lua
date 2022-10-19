@@ -84,6 +84,8 @@ packer.startup({
         use("b0o/incline.nvim")
         -- null-ls
         use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
+        -- bridge between null-ls and mason
+        use("jayp0521/mason-null-ls.nvim")
         -- fidget, a lsp frontend indicator
         use("j-hui/fidget.nvim")
         -- gitsigns
@@ -98,14 +100,12 @@ packer.startup({
         use("rcarriga/nvim-notify")
         -- nvim-dap
         use("mfussenegger/nvim-dap")
-        -- dap-buddy.nvim
-        use({
-            "Pocco81/DAPInstall.nvim",
-            module = "dap-install",
-        })
-        use("rcarriga/nvim-dap-ui")
         use("theHamsta/nvim-dap-virtual-text")
-
+        -- dap-buddy.nvim
+        use("Pocco81/DAPInstall.nvim")
+        use("rcarriga/nvim-dap-ui")
+        -- Mason DAP bridge
+        use("jayp0521/mason-nvim-dap.nvim")
 
     end,
     config = {
