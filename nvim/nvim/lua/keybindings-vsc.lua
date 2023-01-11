@@ -135,18 +135,6 @@ pluginKeys.nvimTreeList = { -- open file or folder
     }
 }
 
--- bufferline
--- switch between tabs
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opt)
-map("n", "<C-Left>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-Right>", ":BufferLineCycleNext<CR>", opt)
--- close tab
-map("n", "<C-w>", ":Bdelete!<CR>", opt)
-map("n", "<leader>cl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>ch", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>cc", ":BufferLinePickClose<CR>", opt)
-
 -- telescope
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)

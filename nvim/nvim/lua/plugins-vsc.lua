@@ -14,15 +14,6 @@ packer.startup({
             },
             tag = 'nightly' -- optional, updated every week.
         })
-        -- tab bar
-        use({
-            'akinsho/bufferline.nvim',
-            tag = "v2.*",
-            requires = {
-                'kyazdani42/nvim-web-devicons',
-                'moll/vim-bbye'
-            }
-        })
         -- search
         use({
             'nvim-telescope/telescope.nvim',

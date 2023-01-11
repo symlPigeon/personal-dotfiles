@@ -11,8 +11,6 @@ if vim.g.vscode then
     -- plugins
     -- NvimTree
     require('plugin-config.nvim-tree')
-    -- bufferline
-    require('plugin-config.bufferline')
     -- telescope
     require('plugin-config.telescope')
     -- surround
