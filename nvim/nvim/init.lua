@@ -10,13 +10,15 @@ if vim.g.vscode then
 
     -- plugins
     -- NvimTree
-    require('plugin-config.nvim-tree')
-    -- telescope
-    require('plugin-config.telescope')
-    -- surround
-    require('plugin-config.surround')
+    -- require('plugin-config.nvim-tree')
+    -- lualine
+    -- require('plugin-config.lualine')
+
+
     -- comment
     require('plugin-config.comment')
+    -- hop
+    require('plugin-config.hop')
 else
     -- basic configure
     require('basic')
@@ -69,4 +71,6 @@ else
     require('dap.conf')
     -- mason dap bridge
     require('dap.mason-dap')
+    -- hop
+    require('plugin-config.hop')
 end

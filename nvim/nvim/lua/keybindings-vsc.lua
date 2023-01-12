@@ -65,95 +65,12 @@ map("v", "K", ":m '<-2<CR>gv-gv", opt)
 -- view code
 map("n", "<C-j>", "4j", opt)
 map("n", "<C-k>", "4k", opt)
-map("n", "<C-Up>", "9k", opt)
-map("n", "<C-Down>", "9j", opt)
+-- map("n", "<C-Up>", "9k", opt)
+-- map("n", "<C-Down>", "9j", opt)
 
 -- Insert mode
 map("i", "<C-h>", "<Esc>I", opt)
 map("i", "<C-j>", "<Esc>A", opt)
 
--- nvim-tree
--- open/close NvimTree
-map("n", "<A-m>", ":NvimTreeToggle<CR>", opt)
--- nvim tree hotkeys
-pluginKeys.nvimTreeList = { -- open file or folder
-    {
-        key = {
-            "<CR>",
-            "o",
-            "<2-LeftMouse>"
-        },
-        action = "edit"
-    }, -- open file in splited window
-    {
-        key = "v",
-        action = "vsplit"
-    },
-    {
-        key = "h",
-        action = "split"
-    }, -- toggle hidden files
-    {
-        key = "h",
-        action = "toggle_custom"
-    },
-    {
-        key = ".",
-        action = "toggle_dotfiles"
-    }, -- file operations
-    {
-        key = "<F5>",
-        action = "refresh"
-    },
-    {
-        key = "a",
-        action = "create"
-    },
-    {
-        key = "d",
-        action = "remove"
-    },
-    {
-        key = "r",
-        action = "rename"
-    },
-    {
-        key = "x",
-        action = "cut"
-    },
-    {
-        key = "c",
-        action = "copy"
-    },
-    {
-        key = "p",
-        action = "paste"
-    },
-    {
-        key = "s",
-        action = "system_open"
-    }
-}
-
--- telescope
-map("n", "<C-p>", ":Telescope find_files<CR>", opt)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
-pluginKeys.telescopeList = {
-    i = { -- hotkeys in insert mode
-        -- move
-        ["<C-j>"] = "move_selection_next",
-        ["<C-k>"] = "move_selection_previous",
-        ["<Down>"] = "move_selection_next",
-        ["<Up>"] = "move_selection_previous",
-        -- history
-        ["<C-p>"] = "cycle_history_prev",
-        ["<C-n>"] = "cycle_history_next",
-        -- close window
-        ["<C-c>"] = "close",
-        -- move preview window
-        ["<C-u>"] = "preview_scrolling_up",
-        ["<C-d>"] = "preview_scrolling_down"
-    }
-}
 
 return pluginKeys

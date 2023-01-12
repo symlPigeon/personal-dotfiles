@@ -5,7 +5,11 @@ if not status then
 end
 
 -- hotkey
-local list_keys = require('keybindings').nvimTreeList
+if vim.g.vscode then
+    local list_keys = require('keybindings-vsc').nvimTreeList
+else
+    local list_keys = require('keybindings').nvimTreeList
+end
 
 -- configure
 nvim_tree.setup({

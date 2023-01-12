@@ -169,12 +169,12 @@
   {
     "key": "space",
     "command": "whichkey.show",
-    "when": "neovim.mode != 'insert' && !terminalFocus"
+    "when": "neovim.mode != 'insert' && !terminalFocus && editorFocus"
   },
   {
     "key": "escape",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
+    "when": "!editorFocus"
   },
   {
     "key": "ctrl+left",
@@ -187,13 +187,60 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "alt+left",
+    "key": "alt+up",
+    "command": "workbench.files.action.focusOpenEditorsView",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "alt+down",
+    "command": "workbench.action.focusSideBar",
+    "when": "openEditorsFocus"
+  },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+m",
     "command": "workbench.action.focusSideBar",
     "when": "editorTextFocus"
   },
   {
-    "key": "alt+right",
+    "key": "alt+m",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "sideBarFocus"
+  },
+  {
+    "key": "alt+left",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "alt+right",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "alt+up",
+    "command": "workbench.action.navigateUp",
+    "when": "!filesExplorerFocus"
+  },
+  {
+    "key": "alt+down",
+    "command": "workbench.action.navigateDown",
+    "when": "!openEditorsFocus"
+  },
+  {
+    "key": "e",
+    "command": "whichkey.triggerKey",
+    "args": {
+      "key": "e",
+      "when": "sideBarVisible && explorerViewletVisible"
+    },
+    "when": "whichkeyVisible && sideBarVisible && explorerViewletVisible"
   }
 ]

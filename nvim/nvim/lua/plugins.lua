@@ -106,6 +106,13 @@ packer.startup({
         use("rcarriga/nvim-dap-ui")
         -- Mason DAP bridge
         use("jayp0521/mason-nvim-dap.nvim")
+        -- easy motion replacement
+        use {
+            'phaazon/hop.nvim',
+            branch = 'v2', -- optional but strongly recommended
+        }
+
+
 
     end,
     config = {

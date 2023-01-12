@@ -65,12 +65,12 @@ map("v", "K", ":m '<-2<CR>gv-gv", opt)
 -- view code
 map("n", "<C-j>", "4j", opt)
 map("n", "<C-k>", "4k", opt)
-map("n", "<C-Up>", "9k", opt)
-map("n", "<C-Down>", "9j", opt)
+-- map("n", "<C-Up>", "9k", opt)
+-- map("n", "<C-Down>", "9j", opt)
 
 -- Insert mode
-map("i", "<C-h>", "<Esc>I", opt)
-map("i", "<C-j>", "<Esc>A", opt)
+-- map("i", "<C-h>", "<Esc>I", opt)
+-- map("i", "<C-j>", "<Esc>A", opt)
 
 -- nvim-tree
 -- open/close NvimTree
@@ -302,5 +302,25 @@ pluginKeys.mapDAP = function()
     -- eval
     map("n", "<leader>dh", ":lua require'dapui'.eval()<CR>", opt)
 end
+
+
+-- pluginKeys.mapHop = function(hop, directions)
+--     vim.keymap.set('n', 'f', function()
+--         hop.hint_char1({ directions = directions.AFTER_CURSOR, current_line_only = true })
+--     end, opt)
+--     vim.keymap.set('n', 'F', function()
+--         hop.hint_char1({ directions = directions.BEFORE_CURSOR, current_line_only = true })
+--     end, opt)
+--     vim.keymap.set('n', 't', function()
+--         hop.hint_char1({ directions = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
+--     end, opt)
+--     vim.keymap.set('n', 'T', function()
+--         hop.hint_char1({ directions = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
+--     end, opt)
+-- end
+
+vim.g.VM_maps = {
+    ["I BS"] = '', -- disable backspace mapping
+}
 
 return pluginKeys

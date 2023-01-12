@@ -6,31 +6,12 @@ packer.startup({
         -- -- plugins
         -- theme
         use("shaunsingh/moonlight.nvim")
-        -- file explorer
-        use({
-            'kyazdani42/nvim-tree.lua',
-            requires = {
-                'kyazdani42/nvim-web-devicons'
-            },
-            tag = 'nightly' -- optional, updated every week.
-        })
-        -- search
-        use({
-            'nvim-telescope/telescope.nvim',
-            tag = '0.1.0',
-            requires = {
-                {
-                    'nvim-lua/plenary.nvim'
-                }
-            }
-        })
-        -- vim surround
-        use("ur4ltz/surround.nvim")
-        -- vim toggleterm
-        use("akinsho/toggleterm.nvim")
-        -- comment enhancements
-        use("numToStr/Comment.nvim")
+        use {
+            'phaazon/hop.nvim',
+            branch = 'v2', -- optional but strongly recommended
+        }
 
+        use("numToStr/Comment.nvim")
     end,
     config = {
         max_jobs = 16,

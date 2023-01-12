@@ -282,39 +282,7 @@
   "pylint.args": ["--disable=C0116,C0103,C0301"],
   "git.enableCommitSigning": true,
   "python.formatting.provider": "black",
-  // // vscode-vim
-  // "vim.easymotion": true,
-  // "vim.incsearch": true,
-  // "vim.useSystemClipboard": true,
-  // "vim.useCtrlKeys": true,
-  // "vim.hlsearch": true,
-  // "vim.insertModeKeyBindings": [
-  //   {
-  //     "before": ["j", "j"],
-  //     "after": ["<Esc>"]
-  //   }
-  // ],
-  // "vim.normalModeKeyBindingsNonRecursive": [
-  //   {
-  //     "before": ["<leader>", "d"],
-  //     "after": ["d", "d"]
-  //   },
-  //   {
-  //     "before": ["<C-n>"],
-  //     "commands": [":nohl"]
-  //   },
-  //   {
-  //     "before": ["K"],
-  //     "commands": ["lineBreakInsert"],
-  //     "silent": true
-  //   }
-  // ],
-  // "vim.leader": "<space>",
-  // "vim.handleKeys": {
-  //   "<C-a>": false,
-  //   "<C-f>": false
-  // },
-  // "vim.enableNeovim": true
+
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
@@ -521,9 +489,22 @@
     },
     {
       "key": "e",
-      "name": "Toggle Explorer",
-      "type": "command",
-      "command": "workbench.action.toggleSidebarVisibility"
+      "name": "Toggle explorer",
+      "type": "conditional",
+      "bindings": [
+        {
+          "key": "",
+          "name": "default",
+          "type": "command",
+          "command": "workbench.view.explorer"
+        },
+        {
+          "key": "when:sideBarVisible && explorerViewletVisible",
+          "name": "Hide explorer",
+          "type": "command",
+          "command": "workbench.action.toggleSidebarVisibility"
+        }
+      ]
     },
     {
       "key": "f",
@@ -532,22 +513,34 @@
       "bindings": [
         {
           "key": "f",
-          "name": "File",
+          "name": "Find/Replace in current file",
           "type": "command",
           "command": "editor.action.startFindReplaceAction"
         },
         {
           "key": "s",
-          "name": "Symbol",
+          "name": "Rename symbol",
           "type": "command",
           "command": "editor.action.rename",
           "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
         },
         {
           "key": "p",
-          "name": "Project",
+          "name": "Find/Replace in whole project",
           "type": "command",
           "command": "workbench.action.replaceInFiles"
+        },
+        {
+          "key": "t",
+          "name": "Search text",
+          "type": "command",
+          "command": "workbench.action.findInFiles"
+        },
+        {
+          "key": "F",
+          "name": "Search file",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
         }
       ]
     },
@@ -713,12 +706,6 @@
       ]
     },
     {
-      "key": "h",
-      "name": "Split Horizontal",
-      "type": "command",
-      "command": "workbench.action.splitEditorDown"
-    },
-    {
       "key": "i",
       "name": "Insert...",
       "type": "bindings",
@@ -740,6 +727,55 @@
           "name": "Insert snippet",
           "type": "command",
           "command": "editor.action.insertSnippet"
+        }
+      ]
+    },
+    {
+      "key": "j",
+      "name": "Jump to character",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "c",
+          "name": "Jump to character",
+          "type": "command",
+          "command": "vscode-neovim.send",
+          "args": ":HopChar1<CR>"
+        },
+        {
+          "key": "C",
+          "name": "Jump to two character",
+          "type": "command",
+          "command": "vscode-neovim.send",
+          "args": ":HopChar2<CR>"
+        },
+        {
+          "key": "L",
+          "name": "Jump to line",
+          "type": "command",
+          "command": "vscode-neovim.send",
+          "args": ":HopLine<CR>"
+        },
+        {
+          "key": "l",
+          "name": "Jump to line start",
+          "type": "command",
+          "command": "vscode-neovim.send",
+          "args": ":HopLineStart<CR>"
+        },
+        {
+          "key": "p",
+          "name": "Jump to pattern",
+          "type": "command",
+          "command": "vscode-neovim.send",
+          "args": ":HopPattern<CR>"
+        },
+        {
+          "key": "j",
+          "name": "Jump to word",
+          "type": "command",
+          "command": "vscode-neovim.send",
+          "args": ":HopWord<CR>"
         }
       ]
     },
@@ -931,19 +967,6 @@
       ]
     },
     {
-      "key": "M",
-      "name": "Minimap",
-      "type": "command",
-      "command": "editor.action.toggleMinimap"
-    },
-    {
-      "key": "n",
-      "name": "No Highlight",
-      "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":noh<CR>"
-    },
-    {
       "key": "o",
       "name": "Open...",
       "type": "bindings",
@@ -1015,25 +1038,6 @@
       ]
     },
     {
-      "key": "s",
-      "name": "Search...",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "f",
-          "name": "Files",
-          "type": "command",
-          "command": "workbench.action.quickOpen"
-        },
-        {
-          "key": "t",
-          "name": "Text",
-          "type": "command",
-          "command": "workbench.action.findInFiles"
-        }
-      ]
-    },
-    {
       "key": "S",
       "name": "Show...",
       "type": "bindings",
@@ -1057,6 +1061,12 @@
           "command": "workbench.view.scm"
         },
         {
+          "key": "d",
+          "name": "Show debug",
+          "type": "command",
+          "command": "workbench.view.debug"
+        },
+        {
           "key": "t",
           "name": "Show test",
           "type": "command",
@@ -1073,6 +1083,18 @@
           "name": "Show extensions",
           "type": "command",
           "command": "workbench.view.extensions"
+        },
+        {
+          "key": "T",
+          "name": "Show TODO-Tree",
+          "type": "command",
+          "command": "workbench.view.extension.todo-tree-container"
+        },
+        {
+          "key": "b",
+          "name": "Show bookmarks",
+          "type": "command",
+          "command": "workbench.view.extension.bookmarks"
         },
         {
           "key": "p",
@@ -1164,16 +1186,41 @@
       ]
     },
     {
-      "key": "v",
-      "name": "Split Vertical",
-      "type": "command",
-      "command": "workbench.action.splitEditor"
-    },
-    {
       "key": "w",
       "name": "Window...",
       "type": "bindings",
       "bindings": [
+        {
+          "key": "s",
+          "name": "Split editor",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "h",
+              "name": "Split editor left",
+              "type": "command",
+              "command": "workbench.action.splitEditorLeft"
+            },
+            {
+              "key": "j",
+              "name": "Split editor down",
+              "type": "command",
+              "command": "workbench.action.splitEditorDown"
+            },
+            {
+              "key": "k",
+              "name": "Split editor up",
+              "type": "command",
+              "command": "workbench.action.splitEditorUp"
+            },
+            {
+              "key": "l",
+              "name": "Split editor right",
+              "type": "command",
+              "command": "workbench.action.splitEditorRight"
+            }
+          ]
+        },
         {
           "key": "W",
           "name": "Focus previous editor group",
@@ -1249,35 +1296,11 @@
       ]
     },
     {
-      "key": "x",
-      "name": "Extensions",
-      "type": "command",
-      "command": "workbench.view.extensions"
-    },
-    {
-      "key": "y",
-      "name": "Sync...",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "d",
-          "name": "Download Settings",
-          "type": "command",
-          "command": "extension.downloadSettings"
-        },
-        {
-          "key": "u",
-          "name": "Upload Settings",
-          "type": "command",
-          "command": "extension.updateSettings"
-        }
-      ]
-    },
-    {
       "key": "z",
       "name": "Toggle zen mode",
       "type": "command",
       "command": "workbench.action.toggleZenMode"
     }
-  ]
+  ],
+  "vscode-neovim.revealCursorScrollLine": false
 }
