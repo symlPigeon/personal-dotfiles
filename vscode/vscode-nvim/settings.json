@@ -247,7 +247,7 @@
   "plantuml.jar": "/usr/share/java/plantuml/plantuml.jar",
   "editor.guides.bracketPairs": true,
   "window.menuBarVisibility": "toggle",
-  "workbench.colorTheme": "Moonlight II",
+  "workbench.colorTheme": "Moonlight Italic",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "clang-format.style": "file:/home/syml/.clang-format",
@@ -270,7 +270,7 @@
     "--pretty",
     "--enable-config"
   ],
-  "clangd.path": "/home/syml/.config/Code - OSS/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/15.0.6/clangd_15.0.6/bin/clangd",
+  "clangd.path": "/usr/bin/clangd",
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "VSCodeCounter.exclude": [
     "**/.gitignore",
@@ -1302,5 +1302,24 @@
       "command": "workbench.action.toggleZenMode"
     }
   ],
-  "vscode-neovim.revealCursorScrollLine": false
+  "vscode-neovim.revealCursorScrollLine": false,
+  "vscode-neovim.useCtrlKeysForInsertMode": false,
+  "vscode-neovim.useCtrlKeysForNormalMode": false,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.renderLineHighlight": "all",
+  "python.linting.pylintEnabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoImportUserSymbols": true,
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "NOTE"
+  ]
 }
