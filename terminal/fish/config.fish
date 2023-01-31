@@ -15,4 +15,5 @@ alias vim="nvim"
 alias find="fd"
 alias ip='ip -color=auto'
 
+fzf_configure_bindings --directory=\cf --git_status=\cg --history=\ch 
 starship init fish | source
