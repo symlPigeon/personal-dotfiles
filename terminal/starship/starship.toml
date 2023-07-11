@@ -1,5 +1,5 @@
 format = """
-[#](gray) $username @$hostname : \
+[#](gray) $username @ $hostname : \
 $localip\
 $shlvl\
 $singularity\
@@ -59,7 +59,6 @@ $nix_shell\
 $conda\
 $meson\
 $spack\
-$memory_usage\
 $aws\
 $gcloud\
 $openstack\
@@ -69,15 +68,17 @@ $crystal\
 $custom\
 $sudo\
 $fill\
+$memory_usage\
 $status\
 $line_break\
 $jobs\
 $battery\
-$os\
 $container\
 $shell\
 $character
 """
+
+continuation_prompt = "▶"
 
 [aws]
 symbol = "  "
@@ -136,6 +137,7 @@ symbol = " "
 
 [memory_usage]
 symbol = " "
+disabled = false
 
 [meson]
 symbol = "喝 "
@@ -148,6 +150,9 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+
+[os]
+disabled = false
 
 [os.symbols]
 Alpine = " "
@@ -221,7 +226,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red)'
+format = '[$ssh_symbol](bold blue) [$hostname](bold red)'
 trim_at = '.companyname.com'
 disabled = false
 
@@ -235,7 +240,7 @@ symbol = '❌'
 success_symbol = '🟢SUCCESS'
 not_executable_symbol = ' '
 not_found_symbol = '🔍'
-sigint_symbol = ''
+sigint_symbol = ' '
 signal_symbol = '⚡'
 format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style)'
 map_symbol = true
