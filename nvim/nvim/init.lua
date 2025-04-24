@@ -1,76 +1,54 @@
-if vim.g.vscode then
-    -- basic configure
-    require('basic')
-    -- hotkey map
-    require('keybindings-vsc')
-    -- plugins manager
-    require('plugins-vsc')
-    -- theme
-    require('colorscheme')
+require "user.launch"
+require "user.options"
+require "user.keymaps"
+require "user.autocmds"
+-- main plugins
+spec "user.colorscheme"
+spec "user.bufferline"
+spec "user.devicons"
+spec "user.treesitter"
+spec "user.mason"
+spec "user.schemastore"
+spec "user.lspconfig"
+spec "user.whichkey"
+spec "user.cmp"
+spec "user.telescope"
+spec "user.none-ls"
+spec "user.illuminate"
+spec "user.gitsigns"
+spec "user.neotree"
+spec "user.comment"
+spec "user.lualine"
+spec "user.harpoon"
+spec "user.neotest"
+spec "user.autopairs"
+spec "user.neogit"
+spec "user.alpha"
+spec "user.project"
+spec "user.indentline"
+spec "user.toggleterm"
+spec "user.dap"
 
-    -- plugins
-    -- NvimTree
-    -- require('plugin-config.nvim-tree')
-    -- lualine
-    -- require('plugin-config.lualine')
+-- extras
+spec "user.extras.lspsaga"
+spec "user.extras.copilot"
+spec "user.extras.fidget"
+spec "user.extras.colorizer"
+spec "user.extras.hop"
+spec "user.extras.bqf"
+spec "user.extras.neoscroll"
+spec "user.extras.neotab"
+spec "user.extras.rainbow-delimiters"
+spec "user.extras.window"
+spec "user.extras.notify"
+spec "user.extras.lastplace"
+spec "user.extras.noice"
+spec "user.extras.trouble"
+spec "user.extras.rustacean"
+spec "user.extras.incline"
+spec "user.extras.surround"
+spec "user.extras.modicator"
+spec "user.extras.numb"
+spec "user.extras.eyeliner"
 
-
-    -- comment
-    require('plugin-config.comment')
-    -- hop
-    require('plugin-config.hop')
-else
-    -- basic configure
-    require('basic')
-    -- hotkey map
-    require('keybindings')
-    -- plugins
-    require('plugins')
-    -- theme
-    require('colorscheme')
-
-    -- plugins
-    -- NvimTree
-    require('plugin-config.nvim-tree')
-    -- bufferline
-    require('plugin-config.bufferline')
-    -- lualine
-    require('plugin-config.lualine')
-    -- telescope
-    require('plugin-config.telescope')
-    -- dashboard
-    require('plugin-config.dashboard')
-    -- telescope projects extensions
-    require('plugin-config.project')
-    -- treesitter
-    require('plugin-config.nvim-treesitter')
-    -- lsp
-    require('lsp.setup')
-    require('lsp.cmp')
-    -- ui enhance
-    require('lsp.ui')
-    require('plugin-config.indent-blankline')
-    -- github copilot
-    require('plugin-config.copilot')
-    -- winbar
-    require('plugin-config.incline')
-    -- null-ls
-    require('lsp.null-ls')
-    -- mason-null-ls, !!! must follow the order: mason null-ls mason-null-ls
-    require('lsp.mason-null-ls')
-    -- fidget
-    require('plugin-config.fidget')
-    -- gitsigns
-    require('plugin-config.gitsigns')
-    -- surround
-    require('plugin-config.surround')
-    -- comment
-    require('plugin-config.comment')
-
-    -- dap
-    require('dap.conf')
-    -- mason dap bridge
-    require('dap.mason-dap')
-    -- hop
-    require('plugin-config.hop')
-end
+require "user.lazy"
